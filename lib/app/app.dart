@@ -1,9 +1,12 @@
-import 'package:my_first_app/ui/bottom_sheets/notice/notice_sheet.dart';
-import 'package:my_first_app/ui/dialogs/info_alert/info_alert_dialog.dart';
-import 'package:my_first_app/ui/views/home/home_view.dart';
-import 'package:my_first_app/ui/views/startup/startup_view.dart';
+// ignore_for_file: always_specify_types
+
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+
+import '../ui/bottom_sheets/notice/notice_sheet.dart';
+import '../ui/dialogs/info_alert/info_alert_dialog.dart';
+import '../ui/views/home/home_view.dart';
+import '../ui/views/startup/startup_view.dart';
 // @stacked-import
 
 @StackedApp(

@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/ui/common/app_colors.dart';
-import 'package:my_first_app/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import '../../common/app_colors.dart';
+import '../../common/ui_helpers.dart';
 import 'info_alert_dialog_model.dart';
 
 const double _graphicSize = 60;
 
 class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
-  final DialogRequest request;
-  final Function(DialogResponse) completer;
-
   const InfoAlertDialog({
-    Key? key,
+    super.key,
     required this.request,
     required this.completer,
-  }) : super(key: key);
+  });
+  final DialogRequest<dynamic> request;
+  // ignore: always_specify_types
+  final Function(DialogResponse<dynamic>) completer;
 
   @override
   Widget builder(
@@ -31,14 +31,17 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          // ignore: always_specify_types
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // ignore: always_specify_types
               children: [
                 Expanded(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    // ignore: always_specify_types
                     children: [
                       Text(
                         request.title!,
@@ -75,6 +78,7 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
             ),
             verticalSpaceMedium,
             GestureDetector(
+              // ignore: always_specify_types
               onTap: () => completer(DialogResponse(
                 confirmed: true,
               )),

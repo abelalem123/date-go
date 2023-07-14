@@ -6,6 +6,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 import 'test_helpers.mocks.dart';
 
+// ignore: always_specify_types
 @GenerateMocks([], customMocks: [
   MockSpec<NavigationService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<BottomSheetService>(onMissingStub: OnMissingStub.returnDefault),
@@ -21,7 +22,7 @@ void registerServices() {
 
 MockNavigationService getAndRegisterNavigationService() {
   _removeRegistrationIfExists<NavigationService>();
-  final service = MockNavigationService();
+  final MockNavigationService service = MockNavigationService();
   locator.registerSingleton<NavigationService>(service);
   return service;
 }
@@ -30,7 +31,7 @@ MockBottomSheetService getAndRegisterBottomSheetService<T>({
   SheetResponse<T>? showCustomSheetResponse,
 }) {
   _removeRegistrationIfExists<BottomSheetService>();
-  final service = MockBottomSheetService();
+  final MockBottomSheetService service = MockBottomSheetService();
 
   when(service.showCustomSheet<T, T>(
     enableDrag: anyNamed('enableDrag'),
@@ -55,7 +56,8 @@ MockBottomSheetService getAndRegisterBottomSheetService<T>({
     customData: anyNamed('customData'),
     data: anyNamed('data'),
     description: anyNamed('description'),
-  )).thenAnswer((realInvocation) =>
+  )).thenAnswer((Invocation realInvocation) =>
+      // ignore: always_specify_types
       Future.value(showCustomSheetResponse ?? SheetResponse<T>()));
 
   locator.registerSingleton<BottomSheetService>(service);
@@ -64,7 +66,7 @@ MockBottomSheetService getAndRegisterBottomSheetService<T>({
 
 MockDialogService getAndRegisterDialogService() {
   _removeRegistrationIfExists<DialogService>();
-  final service = MockDialogService();
+  final MockDialogService service = MockDialogService();
   locator.registerSingleton<DialogService>(service);
   return service;
 }

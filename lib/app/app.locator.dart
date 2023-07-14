@@ -11,7 +11,7 @@ import 'package:stacked_services/src/dialog/dialog_service.dart';
 import 'package:stacked_services/src/navigation/navigation_service.dart';
 import 'package:stacked_shared/stacked_shared.dart';
 
-final locator = StackedLocator.instance;
+final StackedLocator locator = StackedLocator.instance;
 
 Future<void> setupLocator({
   String? environment,
