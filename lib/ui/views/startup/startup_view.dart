@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:stacked/stacked.dart';
-import 'package:my_first_app/ui/common/ui_helpers.dart';
+import '../../common/ui_helpers.dart';
 
 import 'startup_viewmodel.dart';
 
 class StartupView extends StackedView<StartupViewModel> {
-  const StartupView({Key? key}) : super(key: key);
+  const StartupView({super.key});
 
   @override
   Widget builder(
@@ -18,6 +18,7 @@ class StartupView extends StackedView<StartupViewModel> {
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          // ignore: always_specify_types
           children: [
             Text(
               'STACKED',
@@ -25,6 +26,7 @@ class StartupView extends StackedView<StartupViewModel> {
             ),
             Row(
               mainAxisSize: MainAxisSize.min,
+              // ignore: always_specify_types
               children: [
                 Text('Loading ...', style: TextStyle(fontSize: 16)),
                 horizontalSpaceSmall,
@@ -51,6 +53,7 @@ class StartupView extends StackedView<StartupViewModel> {
       StartupViewModel();
 
   @override
-  void onViewModelReady(StartupViewModel viewModel) => SchedulerBinding.instance
-      .addPostFrameCallback((timeStamp) => viewModel.runStartupLogic());
+  void onViewModelReady(StartupViewModel viewModel) =>
+      SchedulerBinding.instance.addPostFrameCallback(
+          (Duration timeStamp) => viewModel.runStartupLogic());
 }

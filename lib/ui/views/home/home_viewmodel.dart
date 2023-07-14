@@ -1,13 +1,14 @@
-import 'package:my_first_app/app/app.bottomsheets.dart';
-import 'package:my_first_app/app/app.dialogs.dart';
-import 'package:my_first_app/app/app.locator.dart';
-import 'package:my_first_app/ui/common/app_strings.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import '../../../app/app.bottomsheets.dart';
+import '../../../app/app.dialogs.dart';
+import '../../../app/app.locator.dart';
+import '../../common/app_strings.dart';
+
 class HomeViewModel extends BaseViewModel {
-  final _dialogService = locator<DialogService>();
-  final _bottomSheetService = locator<BottomSheetService>();
+  final DialogService _dialogService = locator<DialogService>();
+  final BottomSheetService _bottomSheetService = locator<BottomSheetService>();
 
   String get counterLabel => 'Counter is: $_counter';
 

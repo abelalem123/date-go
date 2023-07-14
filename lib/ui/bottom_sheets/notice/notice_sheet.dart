@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_app/ui/common/app_colors.dart';
-import 'package:my_first_app/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import '../../common/app_colors.dart';
+import '../../common/ui_helpers.dart';
 import 'notice_sheet_model.dart';
 
 class NoticeSheet extends StackedView<NoticeSheetModel> {
-  final Function(SheetResponse)? completer;
-  final SheetRequest request;
   const NoticeSheet({
-    Key? key,
+    super.key,
     required this.completer,
     required this.request,
-  }) : super(key: key);
+  });
+  // ignore: strict_raw_type
+  final Function(SheetResponse<dynamic>)? completer;
+  final SheetRequest<dynamic> request;
 
   @override
   Widget builder(
@@ -33,6 +34,7 @@ class NoticeSheet extends StackedView<NoticeSheetModel> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
+        // ignore: always_specify_types
         children: [
           Text(
             request.title!,

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:my_first_app/ui/common/app_colors.dart';
-import 'package:my_first_app/ui/common/ui_helpers.dart';
+import '../../common/app_colors.dart';
+import '../../common/ui_helpers.dart';
 
 import 'home_viewmodel.dart';
 
 class HomeView extends StackedView<HomeViewModel> {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
 
   @override
   Widget builder(
@@ -20,11 +20,12 @@ class HomeView extends StackedView<HomeViewModel> {
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
           child: Center(
             child: Column(
-              mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // ignore: always_specify_types
               children: [
                 verticalSpaceLarge,
                 Column(
+                  // ignore: always_specify_types
                   children: [
                     const Text(
                       'Hello, STACKED!',
@@ -46,6 +47,7 @@ class HomeView extends StackedView<HomeViewModel> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // ignore: always_specify_types
                   children: [
                     MaterialButton(
                       color: kcDarkGreyColor,

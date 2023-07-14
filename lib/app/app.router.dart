@@ -7,24 +7,27 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart' as _i4;
 import 'package:flutter/material.dart';
-import 'package:my_first_app/ui/views/home/home_view.dart' as _i2;
-import 'package:my_first_app/ui/views/startup/startup_view.dart' as _i3;
+// ignore: implementation_imports
+import 'package:stacked/src/code_generation/router_annotation/route_data.dart';
 import 'package:stacked/stacked.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i5;
 
+import '../ui/views/home/home_view.dart' as _i2;
+import '../ui/views/startup/startup_view.dart' as _i3;
+
 class Routes {
-  static const homeView = '/home-view';
+  static const String homeView = '/home-view';
 
-  static const startupView = '/startup-view';
+  static const String startupView = '/startup-view';
 
-  static const all = <String>{
+  static const Set<String> all = <String>{
     homeView,
     startupView,
   };
 }
 
 class StackedRouter extends _i1.RouterBase {
-  final _routes = <_i1.RouteDef>[
+  final List<_i1.RouteDef> _routes = <_i1.RouteDef>[
     _i1.RouteDef(
       Routes.homeView,
       page: _i2.HomeView,
@@ -35,16 +38,17 @@ class StackedRouter extends _i1.RouterBase {
     ),
   ];
 
-  final _pagesMap = <Type, _i1.StackedRouteFactory>{
-    _i2.HomeView: (data) {
+  final Map<Type, _i1.StackedRouteFactory> _pagesMap =
+      <Type, _i1.StackedRouteFactory>{
+    _i2.HomeView: (RouteDataV1 data) {
       return _i4.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i2.HomeView(),
+        builder: (_i4.BuildContext context) => const _i2.HomeView(),
         settings: data,
       );
     },
-    _i3.StartupView: (data) {
+    _i3.StartupView: (RouteDataV1 data) {
       return _i4.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i3.StartupView(),
+        builder: (_i4.BuildContext context) => const _i3.StartupView(),
         settings: data,
       );
     },

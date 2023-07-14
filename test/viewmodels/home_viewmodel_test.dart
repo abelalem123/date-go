@@ -6,6 +6,7 @@ import 'package:my_first_app/ui/common/app_strings.dart';
 import 'package:my_first_app/ui/views/home/home_viewmodel.dart';
 
 import '../helpers/test_helpers.dart';
+import '../helpers/test_helpers.mocks.dart';
 
 void main() {
   HomeViewModel getModel() => HomeViewModel();
@@ -16,7 +17,7 @@ void main() {
 
     group('incrementCounter -', () {
       test('When called once should return  Counter is: 1', () {
-        final model = getModel();
+        final HomeViewModel model = getModel();
         model.incrementCounter();
         expect(model.counterLabel, 'Counter is: 1');
       });
@@ -25,9 +26,10 @@ void main() {
     group('showBottomSheet -', () {
       test('When called, should show custom bottom sheet using notice variant',
           () {
-        final bottomSheetService = getAndRegisterBottomSheetService();
+        final MockBottomSheetService bottomSheetService =
+            getAndRegisterBottomSheetService();
 
-        final model = getModel();
+        final HomeViewModel model = getModel();
         model.showBottomSheet();
         verify(bottomSheetService.showCustomSheet(
           variant: BottomSheetType.notice,
